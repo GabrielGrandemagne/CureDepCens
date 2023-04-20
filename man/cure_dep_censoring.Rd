@@ -61,10 +61,11 @@ This function estimates the parameters of the Piecewise exponential model (dist 
 \examples{
 \donttest{
 library(CureDepCens)
-delta_t <- ifelse(KidneyMimic$cens==1,1,0)
-delta_c <- ifelse(KidneyMimic$cens==2,1,0)
-fit <- cure_dep_censoring(formula = time ~ x1 | x3, data=KidneyMimic, delta_t=delta_t,
-                          delta_c=delta_c, ident=KidneyMimic$ident, dist = "mep")
-summary_dc(fit)
+fit_frasurv_MEP <- cure_dep_censoring(formula = time ~ x1_cure + x_c1 + x_c2 | x_c1 + x_c2,
+                                     data = simula_fracur,
+                                     delta_t = simula_fracur$delta_t,
+                                     delta_c = simula_fracur$delta_c,
+                                     ident = simula_fracur$ident,
+                                     dist = "weibull")
 }
 }

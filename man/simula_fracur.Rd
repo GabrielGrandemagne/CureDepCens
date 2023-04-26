@@ -7,18 +7,18 @@
 \format{
 A data frame with 200 rows and 9 variables:
 \itemize{
-  \item u:
-  \item v:
-  \item t:
-  \item c:
-  \item time: time observed until the occurrence of the outcome.
+  \item u: auxiliary variable, with Uniform distribution.
+  \item v: auxiliary variable, with Uniform distribution.
+  \item t: variable that represents the failure time.
+  \item c: variable that represents the dependent censoring time.
+  \item time: time observed until the occurrence of the outcome, min(t,c).
   \item event: variable that indicates the occurrence of the event of interest, event=1 if the event of interest occurs.
-  \item int:
-  \item x1_cure:
-  \item x_c1:
-  \item x_c2:
-  \item cens: variable that indicates the outcome, cens=1 if the event of interest occurred (death due to kidney failure); cens=2 if the  dependent censoring occurred (patient received a transplant); cens=3 if administrative censoring.
-  \item ident: Variable that indicates the clinic (cluster) of the patient.
+  \item int: auxiliary variable to generate the intercept.
+  \item x1_cure: covariate 1, generated from a Binomial distribution. Can denote, for example, a binary result.
+  \item x_c1: covariate 3, generated from a Normal distribution. Can denote, for example, an standardized age.
+  \item x_c2: covariate 4, generated from a Binomial distribution. can denote, for example,  an treatment result.
+  \item cens: variable that indicates the outcome, cens=1 if the event of interest occurred (death due to natural causes); cens=2 if the  dependent censoring occurred (age until adopted or death due to human causes); cens=3 if administrative censoring.
+  \item ident: Variable that indicates the litter or cluster.
   \item delta_t: indicator function of the event of interest.
   \item delta_c: indicator function of the dependent censoring.
 }

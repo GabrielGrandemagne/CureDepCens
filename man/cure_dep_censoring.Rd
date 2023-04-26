@@ -2,7 +2,7 @@
 % Please edit documentation in R/cure_dep_censoring.R
 \name{cure_dep_censoring}
 \alias{cure_dep_censoring}
-\title{Dependent Censoring model}
+\title{Cure Dependent Censoring model}
 \usage{
 cure_dep_censoring(
   formula,

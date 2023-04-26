@@ -1,6 +1,6 @@
 #---------------------------------------------
 
-#' Dependent Censoring model
+#' Cure Dependent Censoring model
 #' @aliases cure_dep_censoring
 #' @export
 #' @description cure_dep_censoring can be used to fit survival data with dependent censoring, it can also be utilized to take into account informative censoring.
@@ -49,5 +49,5 @@ cure_dep_censoring <- function(formula, data, delta_t, delta_c, ident, dist = c(
 
   switch(dist,
          "weibull" = model_Weibull_dep(formula=formula, data=data, delta_t=delta_t, delta_c=delta_c, ident=ident),
-         "mep" = model_MEP_dep(formula=formula, data=data, delta_t=delta_t, delta_c=delta_c, ident=ident, Num_intervals = 10))
+         "mep" = model_MEP_dep(formula=formula, data=data, delta_t=delta_t, delta_c=delta_c, ident=ident, Num_intervals = 5))
 }

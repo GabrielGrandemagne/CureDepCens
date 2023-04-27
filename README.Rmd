@@ -34,8 +34,8 @@ devtools::install_github("GabrielGrandemagne/CureDepCens")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-install.packages("devtools")
-devtools::install_github('GabrielGrandemagne/CureDepCens')
+#install.packages("devtools")
+#devtools::install_github('GabrielGrandemagne/CureDepCens')
 library(CureDepCens)
 
 fit_mep <- cure_dep_censoring(formula = time ~ x1_cure + x_c2 | x_c1 + x_c2,

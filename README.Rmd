@@ -1,0 +1,60 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# CureDepCens
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Dependent censoring regression models with cure fraction for survival multivariate data.
+
+## Installation
+
+You can install the development version of CureDepCens from [GitHub](https://github.com/) with:
+
+```{r}
+# install.packages("devtools")
+devtools::install_github("GabrielGrandemagne/CureDepCens")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+install.packages("devtools")
+devtools::install_github('GabrielGrandemagne/CureDepCens')
+library(CureDepCens)
+
+fit_mep <- cure_dep_censoring(formula = time ~ x1_cure + x_c2 | x_c1 + x_c2,
+                           data = simula_fracur,
+                           delta_t = simula_fracur$delta_t,
+                           delta_c = simula_fracur$delta_c,
+                           ident = simula_fracur$ident,
+                           dist = "mep")
+summary_cure(fit_mep)
+```
+
+*simula_fracur* is our simulated data frame. For more information check the documentation for stored datasets.
+
+```{r}
+head(simula_fracur)
+```
+
+You can also plot the survival function
+
+```{r plot_dc}
+plot_cure(fit_mep, scenario = "t")
+```

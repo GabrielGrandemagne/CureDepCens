@@ -19,12 +19,12 @@ Print the summary output
 }
 \examples{
 \donttest{
-fit_frasurv_MEP <- cure_dep_censoring(formula = time ~ x1_cure + x_c1 + x_c2 | x_c1 + x_c2,
+fit_MEP <- cure_dep_censoring(formula = time ~ x1_cure + x_c1 | x_c1 + x_c2,
                                      data = simula_fracur,
                                      delta_t = simula_fracur$delta_t,
                                      delta_c = simula_fracur$delta_c,
                                      ident = simula_fracur$ident,
-                                     dist = "MEP")
-summary_cure(fit_frasurv_MEP)
+                                     dist = "mep")
+summary_cure(fit_MEP)
 }
 }

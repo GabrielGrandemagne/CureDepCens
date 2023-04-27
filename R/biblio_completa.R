@@ -523,6 +523,7 @@ model_MEP_dep <-  function(formula, data, delta_t, delta_c, ident, Num_intervals
   fit$bi <- bi
   fit$X_cura <- X_cura
   fit$X_C <- X_C
+  fit$time <- time
   fit$t <- t
   class(fit) <- "dcensoring"
   return(fit)
@@ -930,6 +931,7 @@ model_Weibull_dep <-  function(formula, data, delta_t, delta_c, ident){
   fit$bi <- bi
   fit$X_cura <- X_cura
   fit$X_C <- X_C
+  fit$time <- time
   fit$t <- t
   class(fit) <- "dcensoring"
   return(fit)

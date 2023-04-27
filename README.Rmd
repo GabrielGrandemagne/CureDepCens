@@ -24,8 +24,8 @@ Dependent censoring regression models with cure fraction for survival multivaria
 
 You can install the development version of CureDepCens from [GitHub](https://github.com/) with:
 
-```{r}
-# install.packages("devtools")
+```{r, eval=FALSE}
+install.packages("devtools")
 devtools::install_github("GabrielGrandemagne/CureDepCens")
 ```
 
@@ -55,6 +55,6 @@ head(simula_fracur)
 
 You can also plot the survival function
 
-```{r plot_dc}
+```{r plot_cure}
 plot_cure(fit_mep, scenario = "t")
 ```

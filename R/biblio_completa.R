@@ -456,7 +456,7 @@ model_MEP_dep <-  function(formula, data, delta_t, delta_c, ident, Num_intervals
     ###-----------------------------------------------------------------------------------
     # stopping criterion
     out[s+1,]= c(alpha, beta_cura,beta_C,theta)
-    print(out[s+1,])
+    #print(out[s+1,])
     if (s>2) {
       dif[s,] <- (abs(out[s+1,]-out[s,]))/(abs(out[s,])-eps1)
 
@@ -866,7 +866,7 @@ model_Weibull_dep <-  function(formula, data, delta_t, delta_c, ident){
     ###-----------------------------------------------------------------------------------
     # stopping criterion
     out[s+1,]= c(alpha, beta_cura,beta_C,alpha_T,alpha_C,lambda_T,lambda_C,theta)
-    print(out[s+1,])
+    #print(out[s+1,])
     if (s>2) {
       dif[s,] <- (abs(out[s+1,]-out[s,]))/(abs(out[s,])-eps1)
 

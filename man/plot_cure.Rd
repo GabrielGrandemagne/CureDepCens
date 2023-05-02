@@ -21,14 +21,14 @@ This graph helps to visualize the survival function.
 In order to smooth the line presented in the graph, we used the 'lowess' function. So, it can result in a non-monotonous survival function.
 }
 \examples{
-\donttest{
+\dontrun{
 fit <- cure_dep_censoring(formula = time ~ x1_cure + x_c1 + x_c2 | x_c1 + x_c2,
-                                     data = simula_fracur,
-                                     delta_t = simula_fracur$delta_t,
-                                     delta_c = simula_fracur$delta_c,
-                                     ident = simula_fracur$ident,
+                                     data = simula_cure,
+                                     delta_t = simula_cure$delta_t,
+                                     delta_c = simula_cure$delta_c,
+                                     ident = simula_cure$ident,
                                      dist = "weibull")
-plot_cure(fit, scenario = "both")
+plot_cure(fit, scenario = "t")
 }
 
 }

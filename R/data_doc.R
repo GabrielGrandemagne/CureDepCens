@@ -1,10 +1,11 @@
-#' simula_fracur data set
+#' simula_cure data set
 #'
-#' @name simula_fracur
+#' @name simula_cure
 #' @docType data
 #' @keywords datasets
-#' @description A simulated data frame with 200 individuals, distributed in 40 clinics (clusters) with 5 individuals per clinic. Simulated dataset that mimic a kidney result study. In this simulated dataset it is hypothetically suggested the following causes of outcome: event of interest: death due to kidney failure; dependent censoring: if the patient received a transplant; administrative censoring: all other outcomes.
-#' @format A data frame with 200 rows and 9 variables:
+#' @description A simulated data frame with 800 individuals. Simulated dataset that mimic a free-ranging dogs result study. In this simulated dataset it is hypothetically suggested the following causes of outcome: event of interest: death due to natural causes; dependent censoring: age until adopted or death due to human causes; administrative censoring: all other outcomes.
+
+#' @format A data frame with 800 rows and 13 variables:
 #' \itemize{
 #'   \item u: auxiliary variable, with Uniform distribution.
 #'   \item v: auxiliary variable, with Uniform distribution.
@@ -14,6 +15,7 @@
 #'   \item event: variable that indicates the occurrence of the event of interest, event=1 if the event of interest occurs.
 #'   \item int: auxiliary variable to generate the intercept.
 #'   \item x1_cure: covariate 1, generated from a Binomial distribution. Can denote, for example, a binary result.
+#'   \item x2_cure: covariate 2, generated from a Normal distribution. Can denote, for example, a exam result or an standardized age.
 #'   \item x_c1: covariate 3, generated from a Normal distribution. Can denote, for example, an standardized age.
 #'   \item x_c2: covariate 4, generated from a Binomial distribution. can denote, for example,  an treatment result.
 #'   \item cens: variable that indicates the outcome, cens=1 if the event of interest occurred (death due to natural causes); cens=2 if the  dependent censoring occurred (age until adopted or death due to human causes); cens=3 if administrative censoring.
@@ -22,3 +24,4 @@
 #'   \item delta_c: indicator function of the dependent censoring.
 #' }
 NULL
+

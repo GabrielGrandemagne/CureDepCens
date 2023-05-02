@@ -9,14 +9,14 @@
 #' @return a survival function graph of the fitted model.
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' fit <- cure_dep_censoring(formula = time ~ x1_cure + x_c1 + x_c2 | x_c1 + x_c2,
-#'                                      data = simula_fracur,
-#'                                      delta_t = simula_fracur$delta_t,
-#'                                      delta_c = simula_fracur$delta_c,
-#'                                      ident = simula_fracur$ident,
+#'                                      data = simula_cure,
+#'                                      delta_t = simula_cure$delta_t,
+#'                                      delta_c = simula_cure$delta_c,
+#'                                      ident = simula_cure$ident,
 #'                                      dist = "weibull")
-#' plot_cure(fit, scenario = "both")
+#' plot_cure(fit, scenario = "t")
 #'}
 #'
 plot_cure <- function(object, scenario  = c("t", "c", "both")){

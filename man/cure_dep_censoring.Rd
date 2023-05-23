@@ -11,11 +11,11 @@ cure_dep_censoring(
   delta_c,
   ident,
   dist = c("weibull", "mep"),
-  Num_intervals = 5
+  Num_intervals = 3
 )
 }
 \arguments{
-\item{formula}{an object of class "formula": should be used as 'time ~ failure covariates | informative covariates'.}
+\item{formula}{an object of class "formula": should be used as 'time ~ cure covariates | informative covariates'.}
 
 \item{data}{a data frame, list or environment containing the variables.}
 
@@ -53,7 +53,7 @@ An object of class "dcensoring" is a list containing at least the following comp
 }
 }
 \description{
-cure_dep_censoring can be used to fit survival data with cure fraction and dependent censoring, it can also be utilized to take into account informative censoring.
+cure_dep_censoring can be used to fit survival data with cure fraction and dependent censoring. It can also be utilized to take into account informative censoring.
 }
 \details{
 This function estimates the parameters of the Piecewise exponential model (dist = "mep") or Weibull model (dist = "weibull") with cure rate and dependent censoring, considering the frailty model to estimate the clusters variability and a parameter that captures the dependence between failure and dependent censoring times.
@@ -61,11 +61,16 @@ This function estimates the parameters of the Piecewise exponential model (dist 
 \examples{
 \dontrun{
 library(CureDepCens)
-fit_frasurv_MEP <- cure_dep_censoring(formula = time ~ x1_cure + x_c1 + x_c2 | x_c1 + x_c2,
-                                     data = simula_cure,
-                                     delta_t = simula_cure$delta_t,
-                                     delta_c = simula_cure$delta_c,
-                                     ident = simula_cure$ident,
+Dogs_MimicData <- Dogs_MimicData \%>\%
+ mutate(
+ delta_t = ifelse(Dogs_MimicData$cens==1,1,0),
+ delta_c = ifelse(Dogs_MimicData$cens==2,1,0)
+)
+fit_Weibull <- cure_dep_censoring(formula = time ~ x1_cure + x2_cure | x_c1 + x_c2,
+                                     data = Dogs_MimicData,
+                                     delta_t = Dogs_MimicData$delta_t,
+                                     delta_c = Dogs_MimicData$delta_c,
+                                     ident = Dogs_MimicData$ident,
                                      dist = "weibull")
 }
 }

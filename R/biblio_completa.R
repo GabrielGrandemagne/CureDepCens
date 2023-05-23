@@ -371,13 +371,13 @@ model_MEP_dep <-  function(formula, data, delta_t, delta_c, ident, Num_intervals
   risco_a_T <- rep(1,n)
   risco_a_C <- rep(1,n)
   bmax <- 5
-  lambda_T_j <- rep(0.01,bmax)
+  lambda_T_j <- rep(0.1,bmax)
   ###----------------------------------------------------------------------------------------------------
   # EMMC Algorithm Specifications
-  maxit <- 200
+  maxit <- 150
   eps1= rep(1e-7, length(param))
   eps2= rep(1e-8, length(param))
-  n_intMCs = c(rep(10,20),rep(20,30),rep(50,50),rep(75,50),rep(100,30),rep(125,20))
+  n_intMCs = c(rep(10,20),rep(20,30),rep(30,50),rep(50,30),rep(75,10),rep(100,10))
 
   ## Initializing the objects used
   out =  matrix(NA,maxit+1,length(param))
@@ -821,10 +821,10 @@ model_Weibull_dep <-  function(formula, data, delta_t, delta_c, ident){
   risco_a_C <- rep(1,n)
   ###----------------------------------------------------------------------------------------------------
   #EMMC Algorithm Specifications
-  maxit <- 200 #maximum number of iterations
+  maxit <- 150 #maximum number of iterations
   eps1= rep(1e-7, length(param))
   eps2= rep(1e-8, length(param))
-  n_intMCs = c(rep(10,20),rep(20,30), rep(50,50), rep(75,50), rep(100,30),  rep(125,20))
+  n_intMCs = c(rep(10,20),rep(20,30),rep(30,50),rep(50,30),rep(75,10),rep(100,10))
 
   out =  matrix(NA,maxit+1,length(param))
   dif =  matrix(NA,maxit+1,length(param))

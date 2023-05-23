@@ -19,12 +19,17 @@ Print the summary output
 }
 \examples{
 \dontrun{
-fit_MEP <- cure_dep_censoring(formula = time ~ x1_cure + x_c1 | x_c1 + x_c2,
-                                     data = simula_cure,
-                                     delta_t = simula_cure$delta_t,
-                                     delta_c = simula_cure$delta_c,
-                                     ident = simula_cure$ident,
-                                     dist = "mep")
-summary_cure(fit_MEP)
+Dogs_MimicData <- Dogs_MimicData \%>\%
+ mutate(
+ delta_t = ifelse(Dogs_MimicData$cens==1,1,0),
+ delta_c = ifelse(Dogs_MimicData$cens==2,1,0)
+)
+fit_Weibull <- cure_dep_censoring(formula = time ~ x1_cure + x2_cure | x_c1 + x_c2,
+                                     data = Dogs_MimicData,
+                                     delta_t = Dogs_MimicData$delta_t,
+                                     delta_c = Dogs_MimicData$delta_c,
+                                     ident = Dogs_MimicData$ident,
+                                     dist = "weibull")
+summary_cure(fit_Weibull)
 }
 }

@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-Dependent censoring regression models with cure fraction for survival multivariate data.
+Cure dependent censoring regression models for long-term survival multivariate data.
 
 ## Installation
 
@@ -34,27 +34,31 @@ devtools::install_github("GabrielGrandemagne/CureDepCens")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-#install.packages("devtools")
-#devtools::install_github('GabrielGrandemagne/CureDepCens')
+library(devtools)
 library(CureDepCens)
+load_all()
+Dogs_MimicData <- Dogs_MimicData
+delta_t = ifelse(Dogs_MimicData$cens==1,1,0)
+delta_c = ifelse(Dogs_MimicData$cens==2,1,0)
 
-fit_mep <- cure_dep_censoring(formula = time ~ x1_cure + x_c2 | x_c1 + x_c2,
-                           data = simula_fracur,
-                           delta_t = simula_fracur$delta_t,
-                           delta_c = simula_fracur$delta_c,
-                           ident = simula_fracur$ident,
+# MEP
+fit <- cure_dep_censoring(formula = time ~ x1_cure + x2_cure | x_c1 + x_c2,
+                           data = Dogs_MimicData,
+                           delta_t = delta_t,
+                           delta_c = delta_c,
+                           ident = Dogs_MimicData$ident,
                            dist = "mep")
-summary_cure(fit_mep)
+summary_cure(fit)
 ```
 
-*simula_fracur* is our simulated data frame. For more information check the documentation for stored datasets.
+*Dogs_MimicData* is our simulated data frame. For more information check the documentation for stored datasets.
 
 ```{r}
-head(simula_fracur)
+head(Dogs_MimicData)
 ```
 
 You can also plot the survival function
 
 ```{r plot_cure}
-plot_cure(fit_mep, scenario = "t")
+plot_cure(fit, scenario = "t")
 ```

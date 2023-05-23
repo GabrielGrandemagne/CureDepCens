@@ -3,8 +3,8 @@
 #' Cure Dependent Censoring model
 #' @aliases cure_dep_censoring
 #' @export
-#' @description cure_dep_censoring can be used to fit survival data with cure fraction and dependent censoring, it can also be utilized to take into account informative censoring.
-#' @param formula an object of class "formula": should be used as 'time ~ failure covariates | informative covariates'.
+#' @description cure_dep_censoring can be used to fit survival data with cure fraction and dependent censoring. It can also be utilized to take into account informative censoring.
+#' @param formula an object of class "formula": should be used as 'time ~ cure covariates | informative covariates'.
 #' @param data a data frame, list or environment containing the variables.
 #' @param delta_t Indicator function of the event of interest.
 #' @param delta_c Indicator function of the dependent censoring.
@@ -36,18 +36,23 @@
 #' @examples
 #' \dontrun{
 #' library(CureDepCens)
-#' fit_frasurv_MEP <- cure_dep_censoring(formula = time ~ x1_cure + x_c1 + x_c2 | x_c1 + x_c2,
-#'                                      data = simula_cure,
-#'                                      delta_t = simula_cure$delta_t,
-#'                                      delta_c = simula_cure$delta_c,
-#'                                      ident = simula_cure$ident,
+#' Dogs_MimicData <- Dogs_MimicData %>%
+#'  mutate(
+#'  delta_t = ifelse(Dogs_MimicData$cens==1,1,0),
+#'  delta_c = ifelse(Dogs_MimicData$cens==2,1,0)
+#')
+#' fit_Weibull <- cure_dep_censoring(formula = time ~ x1_cure + x2_cure | x_c1 + x_c2,
+#'                                      data = Dogs_MimicData,
+#'                                      delta_t = Dogs_MimicData$delta_t,
+#'                                      delta_c = Dogs_MimicData$delta_c,
+#'                                      ident = Dogs_MimicData$ident,
 #'                                      dist = "weibull")
 #'}
-cure_dep_censoring <- function(formula, data, delta_t, delta_c, ident, dist = c("weibull", "mep"), Num_intervals = 5){
+cure_dep_censoring <- function(formula, data, delta_t, delta_c, ident, dist = c("weibull", "mep"), Num_intervals = 3){
 
   dist <- match.arg(dist)
 
   switch(dist,
          "weibull" = model_Weibull_dep(formula=formula, data=data, delta_t=delta_t, delta_c=delta_c, ident=ident),
-         "mep" = model_MEP_dep(formula=formula, data=data, delta_t=delta_t, delta_c=delta_c, ident=ident, Num_intervals = 5))
+         "mep" = model_MEP_dep(formula=formula, data=data, delta_t=delta_t, delta_c=delta_c, ident=ident, Num_intervals = 3))
 }

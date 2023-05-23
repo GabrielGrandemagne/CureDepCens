@@ -1,6 +1,6 @@
 Package: CureDepCens
 Title: Dependent Censoring Regression Models with cure fraction
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: c(person(given = "Silvana", family = "Schneider", email = "silvana.schneider@ufrgs.br", role = c("aut", "cre"),  comment = c(ORCID = "0000-0002-1939-480X")),
 	         person(given = "Gabriel", family = "Grandemagne dos Santos", role = "aut"))
 Description: Cure dependent censoring regression models for long-term survival multivariate data. These models are based on extensions of the frailty models, capable to accommodating the cure fraction and the dependence between failure and censoring times, with Weibull and piecewise exponential marginal distributions. Theoretical details regarding the models implemented in the package can be found in Schneider et al. (2022) <https://doi.org/10.1007/s10651-022-00549-0>.

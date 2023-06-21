@@ -1,5 +1,7 @@
-## R CMD check results
+## Resubmission
+This is a resubmission. In this version I have:
 
-0 errors | 0 warnings | 1 note
+* Converted the DESCRIPTION title to title case.
 
-* This is a new release.
+* Also changed the github repository from private to public.
+

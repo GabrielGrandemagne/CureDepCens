@@ -1,4 +1,4 @@
-plot.weibull.t <- function(object){
+plot_weibull_t <- function(object){
   X_cura <- object$X_cura
   bi <- object$bi
   risco_a_T <- object$risco_a_T
@@ -22,7 +22,7 @@ plot.weibull.t <- function(object){
   return(plot(teste_frame$tempo,teste_frame$sobrev_T, xlab = "Follow up time", ylab = "Survival probability of T", main = "Fit with Weibull distribution") + lines(lowess(teste_frame$sobrev_T~teste_frame$tempo), col='red', lwd=2))
 }
 
-plot.weibull.c <- function(object){
+plot_weibull_c <- function(object){
   X_C <- object$X_C
   bi <- object$bi
   risco_a_C <- object$risco_a_C
@@ -51,7 +51,7 @@ plot.weibull.c <- function(object){
   return(plot(teste_frame$tempo,teste_frame$sobrev_C, xlab = "Follow up time", ylab = "Survival probability of C", main = "Fit with Weibull distribution") + lines(lowess(teste_frame$sobrev_C~teste_frame$tempo), col='red', lwd=2))
 }
 
-plot.mep.t <- function(object){
+plot_mep_t <- function(object){
   X_cura <- object$X_cura
   bi <- object$bi
   risco_a_T <- object$risco_a_T
@@ -75,7 +75,7 @@ plot.mep.t <- function(object){
   return(plot(teste_frame$tempo,teste_frame$sobrev_T, xlab = "Follow up time", ylab = "Survival probability of T", main = "Fit with piecewise exponential distribution") + lines(lowess(teste_frame$sobrev_T~teste_frame$tempo), col='red', lwd=2))
 }
 
-plot.mep.c <- function(object){
+plot_mep_c <- function(object){
   X_C <- object$X_C
   bi <- object$bi
   risco_a_C <- object$risco_a_C

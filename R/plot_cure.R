@@ -32,16 +32,16 @@ plot_cure <- function(object, scenario  = c("t", "c", "both")){
   #Caso MEP
   if (is.null(bmax) == FALSE){
     switch(scenario ,
-           "t" = invisible(plot.mep.t(object)),
-           "c" = invisible(plot.mep.c(object)),
-           "both"= invisible(plot.mep.t(object) + plot.mep.c(object)))
+           "t" = invisible(plot_mep_t(object)),
+           "c" = invisible(plot_mep_c(object)),
+           "both"= invisible(plot_mep_t(object) + plot_mep_c(object)))
   }
 
   #Caso Weibull
   else{
     switch(scenario ,
-           "t" = invisible(plot.weibull.t(object)),
-           "c" = invisible(plot.weibull.c(object)),
-           "both"= invisible(plot.weibull.t(object) + plot.weibull.c(object)))
+           "t" = invisible(plot_weibull_t(object)),
+           "c" = invisible(plot_weibull_c(object)),
+           "both"= invisible(plot_weibull_t(object) + plot_weibull_c(object)))
   }
 }

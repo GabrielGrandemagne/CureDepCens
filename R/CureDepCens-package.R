@@ -1,6 +1,6 @@
 #' The 'CureDepCens' package.
 #'
-#' @description Cure dependent censoring regression models for long-term survival multivariate data. These models are based on extensions of the frailty models, capable to accommodating the cure fraction and the dependence between failure and censoring times, with Weibull and piecewise Exponential marginal distributions. Theoretical details regarding the models implemented in the package can be found in Schneider et al. (2022) <doi:10.1007/s10651-022-00549-0>.
+#' @description Cure dependent censoring regression models for long-term survival multivariate data. These models are based on extensions of the frailty models, capable to accommodating the cure fraction and the dependence between failure and censoring times, with Weibull and piecewise exponential marginal distributions. Theoretical details regarding the models implemented in the package can be found in Schneider et al. (2022) <doi:10.1007/s10651-022-00549-0>.
 #'
 #' @docType package
 #' @name CureDepCens-package

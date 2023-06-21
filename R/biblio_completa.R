@@ -88,35 +88,35 @@ modelo_C_MEP <-  function(beta_C, X_C,delta_c,risco_a_C,bi,n_intMC){
 ###--------------------------------------------------------------------------------------------------------------------------------------###
 ### Function that partitions the time axis into intervals, also returns the interval indicator (observations of each interval)           ###
 ###--------------------------------------------------------------------------------------------------------------------------------------###
-time.grid <- function(time, event, n.int=NULL)
+time_grid <- function(time, event, n_int=NULL)
 {
   o <- order(time)
   time <- time[o]
   event <- event[o]
-  time.aux <- unique(time[event==1])
-  if(is.null(n.int))
+  time_aux <- unique(time[event==1])
+  if(is.null(n_int))
   {
-    n.int <- length(time.aux)
+    n_int <- length(time_aux)
   }
 
-  m <- length(time.aux)
-  if(n.int > m)
+  m <- length(time_aux)
+  if(n_int > m)
   {
     a <- c(0,unique(time[event==1]))
     a[length(a)] <- Inf
   }
   else
   {
-    b <- min(m,n.int)
+    b <- min(m,n_int)
     k1 <- trunc(m/b)
     r <- m-b*k1
     k2 <- k1+1
     idf1 <- seq(k1,(b-r)*k1, k1)
     idf2 <- sort(seq(m,max(idf1),-k2))
     idf <- unique(c(idf1,idf2))
-    a_inf <- c(0,time.aux[idf])
+    a_inf <- c(0,time_aux[idf])
     a_inf[length(a_inf)] <- Inf
-    a_s_inf  <- c(0,time.aux[idf])
+    a_s_inf  <- c(0,time_aux[idf])
   }
   saida <- list(a_inf,a_s_inf)
 
@@ -403,8 +403,8 @@ model_MEP_dep <-  function(formula, data, delta_t, delta_c, ident, Num_intervals
     bi = w_chapeu_grupo[ident,]
     theta <- mean(w_chapeu_grupo^2)
     ###----------------------------------------------------------------------------------------
-    a <- time.grid(t,delta_t,bmax); a <- a[[1]]; #failure times grid
-    c <- time.grid(t,delta_c,bmax); c <- c[[1]]; #dependent censoring times grid
+    a <- time_grid(t,delta_t,bmax); a <- a[[1]]; #failure times grid
+    c <- time_grid(t,delta_c,bmax); c <- c[[1]]; #dependent censoring times grid
     b <- length(a)-1
     d <- length(c)-1
     a[length(a)] <- max(t)

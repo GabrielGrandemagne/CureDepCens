@@ -1,3 +1,20 @@
+## R CMD check results
+There were no ERRORs or WARNINGs. 
+
+There was 2 NOTES:
+
+* checking CRAN incoming feasibility ... NOTE
+
+Maintainer: 'Silvana Schneider <silvana.schneider@ufrgs.br>'
+
+* checking for detritus in the temp directory ... NOTE
+
+  Found the following files/directories:
+    'lastMiKTeXException'
+    
+## Downstream dependencies
+There are currently no downstream dependencies for this package.
+
 ## Resubmission
 This is a resubmission. In this version I have:
 
@@ -6,10 +23,3 @@ This is a resubmission. In this version I have:
 * Also changed the github repository from private to public.
 
 * Modified function names.
-
-* There is a NOTE when testing for Windows Server:
-
-* checking for detritus in the temp directory ... NOTE
-Found the following files/directories:
-  'lastMiKTeXException'
-I cant find this file/directory anywhere in the package repository, also there are no notes or errors in the win-builder.

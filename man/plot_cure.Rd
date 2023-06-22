@@ -22,6 +22,9 @@ In order to smooth the line presented in the graph, we used the 'lowess' functio
 }
 \examples{
 \dontrun{
+library(CureDepCens)
+library(tidyverse)
+
 Dogs_MimicData <- Dogs_MimicData \%>\%
  mutate(
  delta_t = ifelse(Dogs_MimicData$cens==1,1,0),

@@ -10,6 +10,9 @@
 #'
 #' @examples
 #' \dontrun{
+#' library(CureDepCens)
+#' library(tidyverse)
+#'
 #' Dogs_MimicData <- Dogs_MimicData %>%
 #'  mutate(
 #'  delta_t = ifelse(Dogs_MimicData$cens==1,1,0),

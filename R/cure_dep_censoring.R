@@ -36,11 +36,14 @@
 #' @examples
 #' \dontrun{
 #' library(CureDepCens)
+#' library(tidyverse)
+#'
 #' Dogs_MimicData <- Dogs_MimicData %>%
 #'  mutate(
 #'  delta_t = ifelse(Dogs_MimicData$cens==1,1,0),
 #'  delta_c = ifelse(Dogs_MimicData$cens==2,1,0)
 #')
+#'
 #' fit_Weibull <- cure_dep_censoring(formula = time ~ x1_cure + x2_cure | x_c1 + x_c2,
 #'                                      data = Dogs_MimicData,
 #'                                      delta_t = Dogs_MimicData$delta_t,

@@ -23,3 +23,5 @@ This is a resubmission. In this version I have:
 * Also changed the github repository from private to public.
 
 * Modified function names.
+
+* Modified examples and replaced '\dontrun{}' with '\donttest{}'.

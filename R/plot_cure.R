@@ -9,22 +9,20 @@
 #' @return a survival function graph of the fitted model.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(CureDepCens)
-#' library(tidyverse)
 #'
-#' Dogs_MimicData <- Dogs_MimicData %>%
-#'  mutate(
-#'  delta_t = ifelse(Dogs_MimicData$cens==1,1,0),
-#'  delta_c = ifelse(Dogs_MimicData$cens==2,1,0)
-#')
-#' fit_Weibull <- cure_dep_censoring(formula = time ~ x1_cure + x2_cure | x_c1 + x_c2,
-#'                                      data = Dogs_MimicData,
-#'                                      delta_t = Dogs_MimicData$delta_t,
-#'                                      delta_c = Dogs_MimicData$delta_c,
-#'                                      ident = Dogs_MimicData$ident,
-#'                                      dist = "weibull")
-#' plot_cure(fit_Weibull, scenario = "t")
+#' delta_t = ifelse(Dogs_MimicData$cens==1,1,0)
+#' delta_c = ifelse(Dogs_MimicData$cens==2,1,0)
+#'
+#' fit <- cure_dep_censoring(formula = time ~ x1_cure + x2_cure | x_c1 + x_c2,
+#'                           data = Dogs_MimicData,
+#'                           delta_t = delta_t,
+#'                           delta_c = delta_c,
+#'                           ident = Dogs_MimicData$ident,
+#'                           dist = "mep")
+#'
+#' plot_cure(fit, scenario = "t")
 #'}
 #'
 plot_cure <- function(object, scenario  = c("t", "c", "both")){

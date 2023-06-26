@@ -34,22 +34,18 @@
 #'   \item \code{time} a vector of the observable times.
 #' }
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(CureDepCens)
-#' library(tidyverse)
 #'
-#' Dogs_MimicData <- Dogs_MimicData %>%
-#'  mutate(
-#'  delta_t = ifelse(Dogs_MimicData$cens==1,1,0),
-#'  delta_c = ifelse(Dogs_MimicData$cens==2,1,0)
-#')
+#' delta_t = ifelse(Dogs_MimicData$cens==1,1,0)
+#' delta_c = ifelse(Dogs_MimicData$cens==2,1,0)
 #'
-#' fit_Weibull <- cure_dep_censoring(formula = time ~ x1_cure + x2_cure | x_c1 + x_c2,
-#'                                      data = Dogs_MimicData,
-#'                                      delta_t = Dogs_MimicData$delta_t,
-#'                                      delta_c = Dogs_MimicData$delta_c,
-#'                                      ident = Dogs_MimicData$ident,
-#'                                      dist = "weibull")
+#' fit <- cure_dep_censoring(formula = time ~ x1_cure + x2_cure | x_c1 + x_c2,
+#'                           data = Dogs_MimicData,
+#'                           delta_t = delta_t,
+#'                           delta_c = delta_c,
+#'                           ident = Dogs_MimicData$ident,
+#'                           dist = "mep")
 #'}
 cure_dep_censoring <- function(formula, data, delta_t, delta_c, ident, dist = c("weibull", "mep"), Num_intervals = 3){
 
